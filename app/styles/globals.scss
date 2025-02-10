@@ -1,0 +1,30 @@
+@use "./components/navbar";
+@use "./pages/home";
+@use "./components/heading";
+@use "./base/variables" as var;
+@use "./pages/movie_details";
+@use "./components/movie_lists";
+@use "./pages/movie_page";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var.$primaryFont;
+}
+
+body,
+html {
+  scroll-behavior: smooth;
+  background-color: #020202;
+  color: #fff;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.main__container {
+  margin: 0 3rem;
+}

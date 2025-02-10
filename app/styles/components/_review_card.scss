@@ -1,0 +1,68 @@
+.review {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+
+  .__card {
+    width: 700px;
+    height: auto;
+    padding: 20px;
+    border-radius: 0.25rem;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: relative;
+  }
+
+  .__user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 14px;
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .__rating {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .MuiRating-iconFilled {
+        color: gold !important;
+      }
+
+      .MuiRating-iconHover {
+        color: orange !important;
+      }
+
+      > span {
+        font-size: 14px;
+        font-weight: 200;
+      }
+    }
+  }
+
+  .__content {
+    padding-left: 4px;
+
+    .__showmore {
+      display: flex;
+    }
+  }
+
+  a:-webkit-any-link {
+    color: gold;
+  }
+}
