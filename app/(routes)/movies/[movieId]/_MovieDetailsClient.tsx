@@ -3,11 +3,11 @@ import React from "react";
 
 import { Movie, MovieDetails, Reviewers } from "@/app/types/movie";
 import { CastMember, CrewMember, VideoResult } from "@/app/types/movieType";
-import MovieCredits from "@/app/components/movie/MovieCredits";
-import MovieVideo from "@/app/components/movie/MovieVideo";
+import Credits from "@/app/components/Credits";
+import Video from "@/app/components/Video";
 import Container from "@/app/components/ui/Container";
-import MovieLists from "@/app/components/movie/MovieLists";
-import MovieReviews from "@/app/components/movie/MovieReviews";
+import Lists from "@/app/components/Lists";
+import Reviews from "@/app/components/Reviews";
 
 interface MovieDetailsClientProps {
   movieDetails: MovieDetails;
@@ -45,15 +45,16 @@ const MovieDetailsClient = ({
           height={350}
           width={250}
           className="overlay__details__image"
+          priority
         />
         <h1 className="__title">{movieDetails.title}</h1>
       </div>
 
       <Container>
-        <MovieCredits movieDetails={movieDetails} movieCredits={movieCredits} />
-        <MovieVideo movieVideos={movieVideos} />
-        <MovieReviews movieReviews={movieReviews} />
-        <MovieLists title="You may also like" movieLists={similarMovies} />
+        <Credits movieDetails={movieDetails} credits={movieCredits} />
+        <Video videos={movieVideos} />
+        <Reviews reviews={movieReviews} />
+        <Lists title="You may also like" movieLists={similarMovies} />
       </Container>
     </article>
   );

@@ -2,18 +2,18 @@
 import { Movie } from "@/app/types/movie";
 import Image from "next/image";
 import React from "react";
-import Heading from "../ui/Heading";
+import Heading from "./ui/Heading";
 import { useRouter } from "next/navigation";
 import defaultPoster from "@/public/default_movie.jpg";
 import { TvShow } from "@/app/types/tvShow";
 
-interface MovieListsProps {
+interface ListsProps {
   title: string;
   movieLists?: Movie[];
   tvShowLists?: TvShow[];
 }
 
-const MovieLists = ({ title, movieLists, tvShowLists }: MovieListsProps) => {
+const Lists = ({ title, movieLists, tvShowLists }: ListsProps) => {
   const router = useRouter();
   const items = tvShowLists ?? movieLists ?? [];
 
@@ -42,4 +42,4 @@ const MovieLists = ({ title, movieLists, tvShowLists }: MovieListsProps) => {
   );
 };
 
-export default MovieLists;
+export default Lists;

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Heading from "../ui/Heading";
+import Heading from "./ui/Heading";
 import { Reviewers } from "@/app/types/movie";
 import defaultAvatar from "@/public/default_avatar.jpg";
 import { format } from "date-fns";
@@ -12,16 +12,20 @@ import rehypeRaw from "rehype-raw";
 import { MdStarBorder } from "react-icons/md";
 import { ShowMore } from "@re-dev/react-truncate";
 
-interface MovieReviewsProps {
-  movieReviews: Reviewers[];
+interface ReviewsProps {
+  reviews: Reviewers[];
 }
 
-const MovieReviews = ({ movieReviews }: MovieReviewsProps) => {
+const Reviews = ({ reviews }: ReviewsProps) => {
+  if (reviews.length <= 0) {
+    return null;
+  }
+
   return (
     <section>
       <Heading title="Reviews" />
       <div className="review">
-        {movieReviews.map((author) => (
+        {reviews.map((author) => (
           <div className="__card" key={author.id}>
             <div className="__user">
               <Avatar
@@ -75,4 +79,4 @@ const MovieReviews = ({ movieReviews }: MovieReviewsProps) => {
   );
 };
 
-export default MovieReviews;
+export default Reviews;

@@ -1,5 +1,6 @@
 import { Movie } from "@/app/types/movie";
 import { TvShow } from "@/app/types/tvShow";
+import { Truncate } from "@re-dev/react-truncate";
 import Image from "next/image";
 import React from "react";
 
@@ -20,7 +21,9 @@ const Overlay = ({ movieDetails, showDetails }: OverlayProps) => {
           <h1 className="overlay__title">
             {"title" in item ? item.title : item.name}
           </h1>
-          <span className="overlay__desc">{item.overview}</span>
+          <span className="overlay__desc">
+            <Truncate lines={5}>{item.overview}</Truncate>
+          </span>
         </div>
         <div className="banner">
           <Image
@@ -29,6 +32,8 @@ const Overlay = ({ movieDetails, showDetails }: OverlayProps) => {
             width={2000}
             height={2000}
             className="banner__image"
+            loading="eager"
+            priority
           />
         </div>
       </section>

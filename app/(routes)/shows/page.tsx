@@ -1,13 +1,32 @@
 import React from "react";
 import TvShowClient from "./_TvShowsClient";
-import { getDiscoverTvShows } from "@/app/lib/tv/tvShows";
+import {
+  getPopularTvShows,
+  getTopRatedTvShows,
+  getTrendingTvShows,
+} from "@/app/lib/tv/tvShows";
 
 const TvShowsPage = async () => {
-  const [discoverTvShowLists] = await Promise.all([getDiscoverTvShows()]);
+  const [
+    popularTvShowLists,
+    trendingTvShowLists,
+    secondaryTrendingTvShowLists,
+    topRatedTvShowLists,
+  ] = await Promise.all([
+    getPopularTvShows(),
+    getTrendingTvShows(),
+    getTrendingTvShows(true),
+    getTopRatedTvShows(),
+  ]);
 
   return (
     <>
-      <TvShowClient discoverTvShowLists={discoverTvShowLists} />
+      <TvShowClient
+        popularTvShowLists={popularTvShowLists}
+        trendingTvShowLists={trendingTvShowLists}
+        secondaryTrendingTvShowLists={secondaryTrendingTvShowLists}
+        topRatedTvShowLists={topRatedTvShowLists}
+      />
     </>
   );
 };

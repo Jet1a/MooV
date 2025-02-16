@@ -1,39 +1,32 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { Movie } from "../types/movie";
-import Image from "next/image";
 import TrendingList from "../components/TrendingList";
 import { TvShow } from "../types/tvShow";
+import Overlay from "../components/ui/Overlay";
 
 interface HomeClientProps {
   trendingMovies: Movie[];
   trendingTvShows: TvShow[];
 }
 
-const HomeClient = ({
-  trendingMovies,
+const HomeClient = ({ trendingMovies, trendingTvShows }: HomeClientProps) => {
+  const [overlayMovie, setOverlayMovie] = useState<Movie | null>(null);
 
-  trendingTvShows,
-}: HomeClientProps) => {
-  const firstMovie = trendingMovies[0];
+  useEffect(() => {
+    if (trendingMovies.length > 0) {
+      const randomMovie = Math.floor(Math.random() * trendingMovies.length);
+      setOverlayMovie(trendingMovies[randomMovie]);
+    }
+  }, [trendingMovies]);
+
+  if (!overlayMovie) {
+    return null;
+  }
 
   return (
     <article>
-      <section className="hero">
-        <div className="overlay">
-          <h1 className="overlay__title">{firstMovie.title}</h1>
-          <span className="overlay__desc">{firstMovie.overview}</span>
-        </div>
-        <div className="banner">
-          <Image
-            src={`https://image.tmdb.org/t/p/original/${firstMovie.backdrop_path}`}
-            alt="backdrop"
-            width={2000}
-            height={2000}
-            className="banner__image"
-          />
-        </div>
-      </section>
-
+      <Overlay movieDetails={overlayMovie} />
       <TrendingList trendingMovies={trendingMovies} />
       <TrendingList trendingTvShows={trendingTvShows} />
     </article>
