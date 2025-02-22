@@ -9,10 +9,10 @@ import {
 } from "@/app/lib/movie/movieDetails";
 
 interface IParams {
-  movieId?: string;
+  movieId: string;
 }
 
-const MovieDetailPage = async ({ params }: { params: IParams }) => {
+const MovieDetailPage = async ({ params }: { params: Promise<IParams> }) => {
   const { movieId } = await params;
 
   if (!movieId) {

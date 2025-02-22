@@ -25,7 +25,6 @@ const ShowDetailsClient = ({
   showReviews,
   similarShows,
 }: ShowDetailsClientProps) => {
-  console.log(showDetails);
 
   return (
     <article className="">

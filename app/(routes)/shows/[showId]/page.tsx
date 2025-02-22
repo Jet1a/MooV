@@ -12,7 +12,7 @@ interface IParams {
   showId: string;
 }
 
-const TvShowDetailPage = async ({ params }: { params: IParams }) => {
+const TvShowDetailPage = async ({ params }: { params: Promise<IParams> }) => {
   const { showId } = await params;
 
   if (!showId) {
