@@ -1,5 +1,6 @@
 import { Reviewers } from "@/app/types/movie";
 import { CastMember, CrewMember, VideoResult } from "@/app/types/movieType";
+import { TvShow } from "@/app/types/tvShow";
 import axios from "axios";
 
 const API_KEY = process.env.TMDB_API_KEY;
@@ -41,7 +42,7 @@ export const getTvShowDetails = async (showId: string) => {
 export const getTvShowCredits = async (showId?: string) => {
   try {
     if (!showId) {
-      throw new Error("Invalid movie ID");
+      throw new Error("Invalid show ID");
     }
 
     const response = await axios.get(
@@ -57,7 +58,7 @@ export const getTvShowCredits = async (showId?: string) => {
     );
 
     if (!response || !response.data) {
-      throw new Error("Movie details fetch failed!");
+      throw new Error("Show credits fetch failed!");
     }
 
     const creditsCast: CastMember[] = response.data.cast
@@ -83,7 +84,7 @@ export const getTvShowCredits = async (showId?: string) => {
       creditsCrew,
     };
   } catch (error) {
-    console.error("Error fetching movie details", error);
+    console.error("Error fetching show credits", error);
     throw error;
   }
 };
@@ -157,6 +158,40 @@ export const getTvShowReviews = async (showId?: string) => {
     }));
   } catch (error) {
     console.error("Error fetching show reviews details", error);
+    throw error;
+  }
+};
+
+export const getSimilarShows = async (showId?: string) => {
+  try {
+    if (!showId) {
+      throw new Error("Invalid show ID");
+    }
+
+    const response = await axios.get(
+      `${TV_SHOW_DETAILS_URL}${showId}/similar`,
+      {
+        headers: {
+          Authorization: `Bearer ${API_KEY}`,
+        },
+        params: {
+          language: "en-US",
+        },
+      }
+    );
+
+    if (!response || !response.data) {
+      throw new Error("Similar tv showsfetch failed!");
+    }
+
+    return response.data.results.slice(0, 10).map((tvShow: TvShow) => ({
+      ...tvShow,
+      poster_path: tvShow.poster_path
+        ? `${IMAGE_BASE_URL}${tvShow.poster_path}`
+        : null,
+    }));
+  } catch (error) {
+    console.error("Error fetching similar tv shows", error);
     throw error;
   }
 };

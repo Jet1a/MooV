@@ -1,11 +1,12 @@
 import Credits from "@/app/components/Credits";
+import Lists from "@/app/components/Lists";
 import Reviews from "@/app/components/Reviews";
 import Video from "@/app/components/Video";
 
 import Container from "@/app/components/ui/Container";
 import { Reviewers } from "@/app/types/movie";
 import { CastMember, CrewMember, VideoResult } from "@/app/types/movieType";
-import { TVShowDetails } from "@/app/types/tvShow";
+import { TvShow, TVShowDetails } from "@/app/types/tvShow";
 import Image from "next/image";
 import React from "react";
 
@@ -14,6 +15,7 @@ interface ShowDetailsClientProps {
   showCredits: { creditsCast: CastMember[]; creditsCrew: CrewMember[] };
   showVideos: VideoResult[];
   showReviews: Reviewers[];
+  similarShows: TvShow[];
 }
 
 const ShowDetailsClient = ({
@@ -21,9 +23,9 @@ const ShowDetailsClient = ({
   showCredits,
   showVideos,
   showReviews,
+  similarShows,
 }: ShowDetailsClientProps) => {
-
-  console.log(showDetails)
+  console.log(showDetails);
 
   return (
     <article className="">
@@ -55,7 +57,7 @@ const ShowDetailsClient = ({
         <Credits showDetails={showDetails} credits={showCredits} />
         <Video videos={showVideos} />
         <Reviews reviews={showReviews} />
-        {/* <Lists title="You may also like" movieLists={similarMovies} /> */}
+        <Lists title="You may also like" tvShowLists={similarShows} />
       </Container>
     </article>
   );

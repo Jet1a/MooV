@@ -1,4 +1,5 @@
 import {
+  getSimilarShows,
   getTvShowCredits,
   getTvShowDetails,
   getTvShowReviews,
@@ -18,14 +19,14 @@ const TvShowDetailPage = async ({ params }: { params: IParams }) => {
     return <div>Invalid movie ID</div>;
   }
 
-  const [showDetails, showCredits, showVideos, showReviews] = await Promise.all(
-    [
+  const [showDetails, showCredits, showVideos, showReviews, similarShows] =
+    await Promise.all([
       getTvShowDetails(showId),
       getTvShowCredits(showId),
       getTvShowVideos(showId),
       getTvShowReviews(showId),
-    ]
-  );
+      getSimilarShows(showId),
+    ]);
 
   return (
     <>
@@ -34,6 +35,7 @@ const TvShowDetailPage = async ({ params }: { params: IParams }) => {
         showCredits={showCredits}
         showVideos={showVideos}
         showReviews={showReviews}
+        similarShows={similarShows}
       />
     </>
   );

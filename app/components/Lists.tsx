@@ -18,7 +18,7 @@ const Lists = ({ title, movieLists, tvShowLists }: ListsProps) => {
   const items = tvShowLists ?? movieLists ?? [];
 
   return (
-    <div>
+    <div className="card__lists">
       <Heading title={title} />
       <ul className="movies">
         {items.map((item) => (
