@@ -1,41 +1,35 @@
 "use client";
 import { Movie } from "@/app/types/movie";
-import Image from "next/image";
 import React from "react";
 import Heading from "./ui/Heading";
-import { useRouter } from "next/navigation";
-import defaultPoster from "@/public/default_movie.jpg";
 import { TvShow } from "@/app/types/tvShow";
+import Card from "./Card";
 
 interface ListsProps {
   title: string;
   movieLists?: Movie[];
   tvShowLists?: TvShow[];
+  searchPage?: boolean;
 }
 
-const Lists = ({ title, movieLists, tvShowLists }: ListsProps) => {
-  const router = useRouter();
+const Lists = ({
+  title,
+  movieLists,
+  tvShowLists,
+  searchPage = false,
+}: ListsProps) => {
   const items = tvShowLists ?? movieLists ?? [];
+
+  if (items.length <= 0) {
+    return null;
+  }
 
   return (
     <div className="card__lists">
       <Heading title={title} />
-      <ul className="movies">
+      <ul className={`${searchPage ? "list__grid" : "list"}`}>
         {items.map((item) => (
-          <li
-            key={item.id}
-            className="movies__item"
-            onClick={() =>
-              router.push(`/${tvShowLists ? "shows" : "movies"}/${item.id}`)
-            }
-          >
-            <Image
-              src={item.poster_path ?? defaultPoster}
-              alt={"title" in item ? item.title : item.name} // Handle both types
-              width={185}
-              height={280}
-            />
-          </li>
+          <Card key={item.id} item={item} />
         ))}
       </ul>
     </div>

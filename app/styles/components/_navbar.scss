@@ -33,6 +33,11 @@
 
     &:hover {
       cursor: pointer;
+
+      span {
+        transition: 0.3s;
+        opacity: 80%;
+      }
     }
   }
 }

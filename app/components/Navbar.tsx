@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
+import Searchbar from "./Searchbar";
 
 const Navbar = () => {
   return (
@@ -17,6 +20,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar__right">
+          <Searchbar />
           <Link href={"/"}>
             <span>Sign up / Login</span>
           </Link>

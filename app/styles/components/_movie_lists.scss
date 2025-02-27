@@ -2,19 +2,16 @@
   margin-top: 2rem;
 }
 
-.movies {
-  display: flex;
-  flex-direction: row;
-  overflow-y: auto;
-  gap: 2rem;
-  width: 100%;
-  padding: 0 20px;
-
-  .movies__item {
+@mixin card-list-styles {
+  .list__item {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin: 20px 0 40px 0;
+
+    @media (max-width: 900px) {
+      margin: 0px 0 20px 0;
+    }
   }
 
   img {
@@ -26,5 +23,59 @@
       cursor: pointer;
       transform: scale(1.15);
     }
+
+    @media (max-width: 900px) {
+      width: 150px;
+      height: 200px;
+    }
+
+    @media (max-width: 730px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: 120px;
+      height: 180px;
+    }
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  overflow-y: auto;
+  gap: 2rem;
+  width: 100%;
+  padding: 0 20px;
+
+  @include card-list-styles();
+}
+
+.list__grid {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  width: 100%;
+  padding: 0 20px;
+
+  @include card-list-styles();
+
+  @media (max-width: 1800px) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  @media (max-width: 1300px) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  @media (max-width: 1100px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding: 0;
+  }
+
+  @media (max-width: 730px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  @media (max-width: 460px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

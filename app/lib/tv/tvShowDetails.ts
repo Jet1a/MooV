@@ -184,7 +184,7 @@ export const getSimilarShows = async (showId?: string) => {
       throw new Error("Similar tv showsfetch failed!");
     }
 
-    return response.data.results.slice(0, 10).map((tvShow: TvShow) => ({
+    return response.data.results.map((tvShow: TvShow) => ({
       ...tvShow,
       poster_path: tvShow.poster_path
         ? `${IMAGE_BASE_URL}${tvShow.poster_path}`
