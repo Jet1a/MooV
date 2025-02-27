@@ -32,7 +32,7 @@ const TrendingList = ({
                 >
                   <p>{index + 1}</p>
                   <Image
-                    src={movie.poster_path}
+                    src={movie.poster_path || '/default-poster.jpg'}
                     alt={movie.title}
                     width={150}
                     height={220}

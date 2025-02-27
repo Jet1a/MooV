@@ -5,15 +5,15 @@ import { getMultiSearchLists } from "@/app/lib/search";
 const SearchPage = async ({
   searchParams,
 }: {
-  searchParams: { q: string };
+  searchParams: Promise<{ q?: string }>;
 }) => {
-  const query = await searchParams.q;
+  const { q } = await searchParams;
 
-  const [searchLists] = await Promise.all([getMultiSearchLists(query)]);
+  const searchLists = await getMultiSearchLists(q);
 
   return (
     <>
-      <ShowPageClient searchLists={searchLists} query={query} />
+      <ShowPageClient searchLists={searchLists} query={q} />
     </>
   );
 };

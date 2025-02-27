@@ -4,12 +4,11 @@ import { Movie } from "@/app/types/movie";
 import React from "react";
 
 interface ShowPageClientProps {
-  searchLists: Movie[];
-  query: string | null;
+  searchLists?: Movie[] | [];
+  query: string | undefined;
 }
 
 const ShowPageClient = ({ searchLists, query }: ShowPageClientProps) => {
-
   return (
     <Container>
       <div className="search">
