@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useMemo, useRef } from "react";
 import { Movie } from "../types/movie";
 import TrendingList from "../components/TrendingList";
 import { TvShow } from "../types/tvShow";
@@ -11,13 +11,14 @@ interface HomeClientProps {
 }
 
 const HomeClient = ({ trendingMovies, trendingTvShows }: HomeClientProps) => {
-  const [overlayMovie, setOverlayMovie] = useState<Movie | null>(null);
+  const overlayMovieRef = useRef<Movie | null>(null);
 
-  useEffect(() => {
-    if (trendingMovies.length > 0) {
-      const randomMovie = Math.floor(Math.random() * trendingMovies.length);
-      setOverlayMovie(trendingMovies[randomMovie]);
+  const overlayMovie = useMemo(() => {
+    if (!overlayMovieRef.current && trendingMovies.length > 0) {
+      const randomIndex = Math.floor(Math.random() * trendingMovies.length);
+      overlayMovieRef.current = trendingMovies[randomIndex];
     }
+    return overlayMovieRef.current;
   }, [trendingMovies]);
 
   if (!overlayMovie) {
