@@ -1,3 +1,5 @@
+"use client";
+
 import { Movie } from "@/app/types/movie";
 import { TvShow } from "@/app/types/tvShow";
 import { Truncate } from "@re-dev/react-truncate";

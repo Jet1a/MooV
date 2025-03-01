@@ -56,8 +56,14 @@
   }
 }
 
+@media (max-width: 800px) {
+  .search-bar.open .__input {
+    width: 100px;
+  }
+}
+
 @media (max-width: 600px) {
-  .search-bar.open .search-input {
-    width: 150px;
+  .search-bar {
+    display: none;
   }
 }

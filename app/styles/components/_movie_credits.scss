@@ -23,6 +23,18 @@
       gap: 1rem;
     }
   }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    margin-top: 6rem;
+    gap: 2rem;
+
+    .__credits {
+      margin-top: 1rem;
+      gap: 2rem;
+      font-size: 14px;
+    }
+  }
 }
 
 .details__cast {
@@ -70,5 +82,8 @@
     gap: 1.5rem;
     width: 100%;
     height: auto;
+
+    @media (max-width: 600px) {
+    }
   }
 }

@@ -40,4 +40,47 @@
       }
     }
   }
+
+  &__toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Dropdown menu for mobile */
+  &__dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 1rem;
+    justify-content: end;
+
+    &__links,
+    &__right,
+    &__left {
+      display: none;
+    }
+
+    &__toggle {
+      display: block;
+    }
+  }
 }
