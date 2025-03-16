@@ -39,6 +39,7 @@ const LoginForm = ({ toggleForm }: LoginFormProps) => {
         if (callback?.ok) {
           toast.success("Logged in");
           router.push("/");
+          router.refresh();
           loginForm.onClose();
         }
 

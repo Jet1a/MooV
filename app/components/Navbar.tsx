@@ -4,8 +4,14 @@ import Link from "next/link";
 import React, { useState } from "react";
 import Searchbar from "./Searchbar";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { User } from "next-auth";
+import { signOut } from "next-auth/react";
 
-const Navbar = () => {
+interface NavbarProps {
+  currentUser?: User | null;
+}
+
+const Navbar = ({ currentUser }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -24,9 +30,13 @@ const Navbar = () => {
         </div>
         <div className="navbar__right">
           <Searchbar />
-          <Link href={"/login"}>
-            <span>Sign up / Login</span>
-          </Link>
+          {currentUser ? (
+            <span onClick={() => signOut()}>Logout</span>
+          ) : (
+            <Link href={"/login"}>
+              <span>Sign up / Login</span>
+            </Link>
+          )}
         </div>
 
         <button className="navbar__toggle" onClick={() => setIsOpen(!isOpen)}>
@@ -42,7 +52,7 @@ const Navbar = () => {
               <span>Tv Series</span>
             </Link>
             <Link href={"/login"} onClick={() => setIsOpen(false)}>
-              <span>Sign up / Login</span>
+              {currentUser ? <span>Logout</span> : <span>Sign up / Login</span>}
             </Link>
           </div>
         )}
