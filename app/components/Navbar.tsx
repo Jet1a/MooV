@@ -24,17 +24,15 @@ const Navbar = () => {
         </div>
         <div className="navbar__right">
           <Searchbar />
-          <Link href={"/"}>
+          <Link href={"/login"}>
             <span>Sign up / Login</span>
           </Link>
         </div>
 
-        {/* Hamburger Menu for Small Screens */}
         <button className="navbar__toggle" onClick={() => setIsOpen(!isOpen)}>
           <GiHamburgerMenu />
         </button>
 
-        {/* Dropdown Menu */}
         {isOpen && (
           <div className="navbar__dropdown">
             <Link href={"/movies"} onClick={() => setIsOpen(false)}>
@@ -43,7 +41,7 @@ const Navbar = () => {
             <Link href={"/shows"} onClick={() => setIsOpen(false)}>
               <span>Tv Series</span>
             </Link>
-            <Link href={"/"} onClick={() => setIsOpen(false)}>
+            <Link href={"/login"} onClick={() => setIsOpen(false)}>
               <span>Sign up / Login</span>
             </Link>
           </div>

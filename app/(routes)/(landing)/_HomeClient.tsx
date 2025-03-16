@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Movie } from "../types/movie";
-import TrendingList from "../components/TrendingList";
-import { TvShow } from "../types/tvShow";
-import Overlay from "../components/ui/Overlay";
+import { Movie } from "../../types/movie";
+import TrendingList from "../../components/TrendingList";
+import { TvShow } from "../../types/tvShow";
+import Overlay from "../../components/ui/Overlay";
 
 interface HomeClientProps {
   trendingMovies: Movie[];

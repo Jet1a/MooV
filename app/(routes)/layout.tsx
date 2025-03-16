@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Mona_Sans } from "next/font/google";
 import "@/app/styles/globals.scss";
-import Navbar from "../components/Navbar";
 
 const monaSans = Mona_Sans({
   subsets: ["latin"],
@@ -20,10 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${monaSans.style}`}>
-        <Navbar />
-        {children}
-      </body>
+      <body className={`${monaSans.style}`}>{children}</body>
     </html>
   );
 }

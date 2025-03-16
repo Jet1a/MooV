@@ -1,5 +1,5 @@
-import { getTrendingMovies } from "../lib/movie/movies";
-import { getTrendingTvShows } from "../lib/tv/tvShows";
+import { getTrendingMovies } from "../../lib/movie/movies";
+import { getTrendingTvShows } from "../../lib/tv/tvShows";
 import HomeClient from "./_HomeClient";
 
 const Home = async () => {

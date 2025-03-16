@@ -1,9 +1,10 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { IoMdClose } from "react-icons/io";
 import "../styles/components/_searchbar.scss";
 import { usePathname, useRouter } from "next/navigation";
+import useSearchRedirect from "../hooks/useSearchRedirect";
 
 const Searchbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,13 +12,7 @@ const Searchbar = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  useEffect(() => {
-    if (searchInput.trim()) {
-      router.push(`/search/?q=${encodeURIComponent(searchInput.trim())}`);
-    } else {
-      router.push("/");
-    }
-  }, [searchInput, router]);
+  useSearchRedirect(searchInput);
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
@@ -36,21 +31,17 @@ const Searchbar = () => {
         <button type="button" onClick={() => setIsOpen(!isOpen)}>
           <HiOutlineMagnifyingGlass size={25} className="__icon" />
         </button>
-        {isOpen && (
-          <>
-            <input
-              type="text"
-              placeholder="Titles, people, genres"
-              className="__input"
-              value={searchInput}
-              onChange={handleSearchInput}
-            />
-            {searchInput && (
-              <button type="button" onClick={clearSearchInput}>
-                <IoMdClose size={18} className="__icon" />
-              </button>
-            )}
-          </>
+        <input
+          type="text"
+          placeholder="Titles, people, genres"
+          className="__input"
+          value={searchInput}
+          onChange={handleSearchInput}
+        />
+        {isOpen && searchInput && (
+          <button type="button" onClick={clearSearchInput}>
+            <IoMdClose size={18} className="__icon" />
+          </button>
         )}
       </div>
     </div>
