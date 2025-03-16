@@ -1,4 +1,4 @@
-# MooV (Capstone Project)
+# MooV (Capstone Project) [![Netlify Status](https://api.netlify.com/api/v1/badges/d1d211d7-137d-4ad2-adf6-4495adab21ed/deploy-status)](https://app.netlify.com/sites/jet1a-moov/deploys)
 
 ![image](https://github.com/user-attachments/assets/28930fe8-d1d0-44b2-a821-8f90980584b1)
 
