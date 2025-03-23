@@ -1,4 +1,5 @@
 import Credits from "@/app/components/Credits";
+import Favorite from "@/app/components/Favorite";
 import Lists from "@/app/components/Lists";
 import Reviews from "@/app/components/Reviews";
 import Video from "@/app/components/Video";
@@ -25,7 +26,6 @@ const ShowDetailsClient = ({
   showReviews,
   similarShows,
 }: ShowDetailsClientProps) => {
-
   return (
     <article className="">
       <section className="hero__details">
@@ -50,6 +50,7 @@ const ShowDetailsClient = ({
           priority
         />
         <h1 className="__title">{showDetails.name}</h1>
+        <Favorite />
       </div>
 
       <Container>

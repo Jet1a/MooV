@@ -8,6 +8,7 @@ import Video from "@/app/components/Video";
 import Container from "@/app/components/ui/Container";
 import Lists from "@/app/components/Lists";
 import Reviews from "@/app/components/Reviews";
+import Favorite from "@/app/components/Favorite";
 
 interface MovieDetailsClientProps {
   movieDetails: MovieDetails;
@@ -48,6 +49,7 @@ const MovieDetailsClient = ({
           priority
         />
         <h1 className="__title">{movieDetails.title}</h1>
+        <Favorite />
       </div>
 
       <Container>

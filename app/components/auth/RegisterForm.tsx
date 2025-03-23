@@ -84,7 +84,7 @@ const RegisterForm = ({ toggleForm }: RegisterFormProps) => {
 
   const footerContent = (
     <p>
-      Already have an account? <span onClick={toggleForm}>Login now</span>
+      Already have an account? <a onClick={toggleForm}>Login now</a>
     </p>
   );
 

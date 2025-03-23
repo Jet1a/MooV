@@ -40,6 +40,13 @@
       }
     }
   }
+  span {
+    &:hover {
+      cursor: pointer;
+      transition: 0.3s;
+      opacity: 80%;
+    }
+  }
 
   &__toggle {
     display: none;

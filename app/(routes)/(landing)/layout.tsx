@@ -4,6 +4,8 @@ import Navbar from "@/app/components/Navbar";
 import ToasterProvider from "@/app/provider/ToasterProvider";
 import React from "react";
 
+export const dynamic = "force-dynamic";
+
 const layout = async ({
   children,
 }: Readonly<{
