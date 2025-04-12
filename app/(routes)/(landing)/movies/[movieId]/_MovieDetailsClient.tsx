@@ -25,6 +25,8 @@ const MovieDetailsClient = ({
   similarMovies,
   movieReviews,
 }: MovieDetailsClientProps) => {
+
+  
   return (
     <article className="">
       <section className="hero__details">
@@ -49,7 +51,7 @@ const MovieDetailsClient = ({
           priority
         />
         <h1 className="__title">{movieDetails.title}</h1>
-        <Favorite />
+        <Favorite movieId={movieDetails.id} />
       </div>
 
       <Container>

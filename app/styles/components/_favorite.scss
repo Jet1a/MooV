@@ -1,0 +1,16 @@
+.favorite {
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 2px;
+  margin-bottom: 0.75rem;
+
+  :hover {
+    transition: all 0.2s ease-in-out;
+    opacity: 70%;
+  }
+}
+
+.favorited{
+  color: #ff3030;
+}
+

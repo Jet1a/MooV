@@ -31,6 +31,8 @@ export async function POST(req: Request) {
       name,
       email,
       hashedPassword,
+      favoriteIds: [],
+      createdAt: new Date().toISOString(),
     });
 
     if (!result) {

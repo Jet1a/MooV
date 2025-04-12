@@ -5,10 +5,8 @@ import Heading from "../ui/Heading";
 import Image from "next/image";
 import { CastMember } from "@/app/types/movieType";
 import defaultAvatar from "@/public/default_avatar.jpg";
-import { useRouter } from "next/navigation";
 
 const CastList = ({ cast }: { cast: CastMember[] }) => {
-  const router = useRouter();
 
   return (
     <>
@@ -18,7 +16,6 @@ const CastList = ({ cast }: { cast: CastMember[] }) => {
           <div
             key={index}
             className="__role"
-            onClick={() => router.push(`/cast/${member.id}`)}
           >
             <Image
               src={member.profile_path ?? defaultAvatar}

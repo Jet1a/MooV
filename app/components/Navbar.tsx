@@ -4,11 +4,11 @@ import Link from "next/link";
 import React, { useState } from "react";
 import Searchbar from "./Searchbar";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { User } from "next-auth";
 import { signOut } from "next-auth/react";
+import { CurrentUser } from "../context/CurrentUserContext";
 
 interface NavbarProps {
-  currentUser?: User | null;
+  currentUser?: CurrentUser | null;
 }
 
 const Navbar = ({ currentUser }: NavbarProps) => {
