@@ -17,9 +17,10 @@ MooV is a web application that provides a comprehensive database of movies and T
 ## Tech Stack
 
 - **Frontend:** TypeScript, React, Next.js
+- **Backend:** MongoDB
 - **Styling:** SCSS
 - **Data Source:** TMDB API
-
+- **Tool:** NextAuth
 ## Installation
 
 1. Clone the repository:
