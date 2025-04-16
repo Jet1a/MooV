@@ -50,7 +50,7 @@ const ShowDetailsClient = ({
           priority
         />
         <h1 className="__title">{showDetails.name}</h1>
-        <Favorite />
+        <Favorite movieId={showDetails.id} />
       </div>
 
       <Container>
